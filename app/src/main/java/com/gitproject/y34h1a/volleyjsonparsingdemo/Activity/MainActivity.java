@@ -218,9 +218,6 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                     //Post Title name Parse
                     postTitle = rootJsonObj.getString("title");
 
-                    // Post Detail
-                    postDetail = rootJsonObj.getString("content");
-
                     //Author parse
                     JSONObject authorObj = rootJsonObj.getJSONObject("author");
                     author = authorObj.getString("name");
@@ -246,7 +243,6 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                     feedItem.setProfilePic(profilePic);
                     feedItem.setTimeStamp(time);
                     feedItem.setThumnail(thumbnil);
-                    feedItem.setDetailPost(postDetail);
 
                     //Add to ArryList
                     arrayList.add(feedItem);
