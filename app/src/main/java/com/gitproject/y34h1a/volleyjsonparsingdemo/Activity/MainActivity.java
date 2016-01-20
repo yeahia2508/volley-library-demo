@@ -3,6 +3,7 @@ package com.gitproject.y34h1a.volleyjsonparsingdemo.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -176,7 +177,6 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                 errorImage.setVisibility(View.VISIBLE);
                 errorMsg.setVisibility(View.VISIBLE);
 
-
                 if(error instanceof TimeoutError || error instanceof NoConnectionError){
                     errorMsg.setText(R.string.network_error);
 
@@ -195,6 +195,14 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
                 //disable loading icon
                 swipeRefreshLayout.setRefreshing(false);
+
+                //again try to load data after 2 seconds
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        swapeRefresh();
+                    }
+                }, 2000);
             }
 
         });
