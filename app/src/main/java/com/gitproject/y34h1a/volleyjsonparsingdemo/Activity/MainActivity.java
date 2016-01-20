@@ -193,16 +193,16 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                     errorMsg.setText(R.string.network_error);
                 }
 
-                //disable loading icon
-                swipeRefreshLayout.setRefreshing(false);
 
-                //again try to load data after 2 seconds
+
+                //again try to load data after 6 seconds
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        swipeRefreshLayout.setRefreshing(false);
                         swapeRefresh();
                     }
-                }, 2000);
+                }, 6000);
             }
 
         });
